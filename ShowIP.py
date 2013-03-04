@@ -12,8 +12,8 @@ class MyApp(wx.App):
     def init_frame(self):
         self.frame = self.res.LoadFrame(None, 'frameMain')
         
-        # favicon = wx.Icon('ip.ico', wx.BITMAP_TYPE_ICO, 16, 16)
-        # self.SetIcon(self, favicon)        
+        self.favicon = wx.Icon('./ip.ico', wx.BITMAP_TYPE_ICO)
+        self.frame.SetIcon(self.favicon)        
 
         # Bind Controls
         self.lblIP = xrc.XRCCTRL(self.frame, 'lblIP')
