@@ -2,7 +2,6 @@ import socket
 import wx
 from wx import xrc
 
-
 class MyApp(wx.App):
 
     def OnInit(self):
@@ -12,6 +11,9 @@ class MyApp(wx.App):
 
     def init_frame(self):
         self.frame = self.res.LoadFrame(None, 'frameMain')
+        
+        # favicon = wx.Icon('ip.ico', wx.BITMAP_TYPE_ICO, 16, 16)
+        # self.SetIcon(self, favicon)        
 
         # Bind Controls
         self.lblIP = xrc.XRCCTRL(self.frame, 'lblIP')
@@ -20,8 +22,8 @@ class MyApp(wx.App):
 
         # Bind Events
         self.frame.Bind(wx.EVT_BUTTON, self.OnClose, id=xrc.XRCID('wxID_OK'))
-        self.lblIP.SetLabel(self.getIP())
         
+        self.lblIP.SetLabel(self.getIP())
         self.frame.Show()
 
     def getIP(self):
@@ -35,6 +37,5 @@ class MyApp(wx.App):
         self.Exit()    
 
 if __name__ == '__main__':
-    print "here"
     app = MyApp(False)
     app.MainLoop()
